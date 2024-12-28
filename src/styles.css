@@ -4,6 +4,8 @@
 @tailwind utilities;
 
 /* Global font settings */
-body {
-  @apply font-poppins;
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
 }

@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule]
 })
 export class NavbarComponent {
-  public isMobileMenuOpen = false;
+  public isMobileMenuOpen: boolean = false;
 
-  public toggleMobileMenu(): void {
+  toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

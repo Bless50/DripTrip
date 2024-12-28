@@ -9,7 +9,6 @@
           >
         </a>
       </div>
-
       <!-- Desktop Navigation Links -->
       <div class="max-lg:hidden lg:flex space-x-8">
         <a
@@ -34,7 +33,7 @@
         >
       </div>
 
-      <!-- Mobile Menu Button -->
+      <!-- Mobile Menu Toggle Button - Visible on Medium and Small Screens -->
       <div class="md:hidden">
         <button
           (click)="toggleMobileMenu()"
@@ -58,47 +57,33 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu  that slides in from the left -->
   <div
     class="fixed inset-y-0 left-0 w-64 bg-blue-600 transform transition-transform duration-300 ease-in-out md:hidden shadow-lg"
-    [ngClass]="{
-      'translate-x-0': isMobileMenuOpen,
-      '-translate-x-full': !isMobileMenuOpen,
-    }">
-    <!-- Mobile Menu Links -->
-    <div class="flex flex-col px-4 pt-2 pb-3 space-y-3">
-      <a
-        href="/"
-        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg font-medium font-poppins"
-        >Home</a
-      >
-      <a
-        href="/about"
-        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg font-medium font-poppins"
-        >About</a
-      >
-      <a
-        href="/services"
-        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg font-medium font-poppins"
-        >Services</a
-      >
-      <a
-        href="/contact"
-        class="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg font-medium font-poppins"
-        >Contact</a
-      >
+    [ngClass]="{'translate-x-0': isMobileMenuOpen, '-translate-x-full': !isMobileMenuOpen}">
+    <!-- Mobile Menu Content -->
+    <div class="flex flex-col h-full">
+      <!-- Logo Section -->
+      <div class="p-4">
+        <a href="/" class="text-white text-xl font-bold">DripTrip</a>
+      </div>
+      
+      <!-- Mobile Menu Links -->
+      <nav class="flex-1 px-4 py-2">
+        <a href="/Home" class="block py-2 text-white hover:text-gray-300">Home</a>
+        <a href="/about" class="block py-2 text-white hover:text-gray-300">About</a>
+        <a href="/contact" class="block py-2 text-white hover:text-gray-300">Contact</a>
+        <a href="/Services" class="block py-2 text-white hover:text-gray-300">Services</a>
+      </nav>
     </div>
   </div>
 
   <!-- Overlay -->
   <div
-    *ngIf="isMobileMenuOpen"
-    class="fixed inset-0 bg-black bg-opacity-50 md:hidden"
+    [ngClass]="{'fixed inset-0 bg-black bg-opacity-50 md:hidden': isMobileMenuOpen}"
     (click)="toggleMobileMenu()"
     (keydown.enter)="toggleMobileMenu()"
-    (keydown.escape)="toggleMobileMenu()"
-    tabindex="0"
     role="button"
-    aria-label="Close mobile menu">
+    tabindex="0">
   </div>
 </nav>
